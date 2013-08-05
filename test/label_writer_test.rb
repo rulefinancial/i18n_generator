@@ -1,0 +1,50 @@
+# encoding: utf-8
+
+require 'minitest/autorun'
+require_relative '../lib/label_writer'
+
+class LabelWriterTest < Minitest::Test
+	def setup
+		@label_writer = LabelWriter.new("output_path")
+	end
+
+	def test_not_null
+		refute_nil(@label_writer)
+	end
+
+	def test_label_filename_generation
+		assert_equal(@label_writer.label_filename("en"), "labels_en.properties")
+	end
+
+  def test_present_translation
+    label = Label.new({
+      :id => "label.message.goodbye",
+      :description => "A friendly goodbye",
+      :en => "Goodbye",
+      :fr => "Au revoir",
+      :jp => "別れる時に発する語"
+    })
+
+    assert_equal(@label_writer.translation_for_label(label, "jp"),
+      "別れる時に発する語",
+      "Translation should be returned correctly when language is present")
+  end
+
+  def test_english_used_when_translation_not_present
+    label = Label.new({
+      :id => "label.message.goodbye",
+      :description => "A friendly goodbye",
+      :en => "Goodbye",
+      :fr => "",
+      :jp => ""
+    })
+
+    assert_equal(@label_writer.translation_for_label(label, "fr"),
+      "Goodbye",
+      "English translation should be used when target language is not present")
+
+    assert_equal(@label_writer.translation_for_label(label, "jp"),
+      "Goodbye",
+      "English translation should be used when target language is not present")
+  end
+end
