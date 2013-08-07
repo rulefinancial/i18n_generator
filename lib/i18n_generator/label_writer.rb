@@ -11,7 +11,7 @@ module I18nGenerator
     FILENAME_PREFIX = "labels_"
 
     FILE_HEADER_TEXT = <<-HEADER
-  # THIS FILE IS GENERATED - PLEASE DO NOT EDIT (https://github.com/rulefinancial/i18n_generator)
+# THIS FILE IS GENERATED - PLEASE DO NOT EDIT (https://github.com/rulefinancial/i18n_generator)
     HEADER
 
     def initialize(output_directory)
