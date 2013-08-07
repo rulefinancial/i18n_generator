@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -28,6 +27,7 @@ Gem::Specification.new do |s|
     "bin/i18n_generator",
     "examples/example_labels.xlsx",
     "i18n_generator.gemspec",
+    "i18n_generator.rb",
     "lib/i18n_generator.rb",
     "lib/i18n_generator/excel_parser.rb",
     "lib/i18n_generator/label.rb",
