@@ -1,11 +1,10 @@
 # encoding: utf-8
 
-require 'minitest/autorun'
-require_relative '../lib/label'
+require 'helper'
 
 class LabelTest < Minitest::Test
 	def setup
-		@valid_label = Label.new({
+		@valid_label = I18nGenerator::Label.new({
 			:id => "label.message.goodbye",
 			:description => "A friendly goodbye",
 			:en => "Goodbye",
@@ -20,7 +19,7 @@ class LabelTest < Minitest::Test
 
 	def test_missing_id
 		assert_raises(RuntimeError) do
-			Label.new({
+			I18nGenerator::Label.new({
 				:description => "A friendly goodbye",
 				:en => "Goodbye",
 				:fr => "Au revoir",
@@ -31,7 +30,7 @@ class LabelTest < Minitest::Test
 
   def test_blank_id
     assert_raises(RuntimeError) do
-      Label.new({
+      I18nGenerator::Label.new({
         :id => "",
         :description => "A friendly goodbye",
         :en => "Goodbye",
@@ -43,7 +42,7 @@ class LabelTest < Minitest::Test
 
 	def test_missing_english_translation
 		assert_raises(RuntimeError) do
-			Label.new({
+			I18nGenerator::Label.new({
 				:id => "label.message.goodbye",
 				:description => "A friendly goodbye",
 				:fr => "Au revoir",
@@ -54,7 +53,7 @@ class LabelTest < Minitest::Test
 
 	def test_blank_english_translation
 		assert_raises(RuntimeError) do
-			Label.new({
+			I18nGenerator::Label.new({
 				:id => "label.message.goodbye",
 				:description => "A friendly goodbye",
         :en => "",

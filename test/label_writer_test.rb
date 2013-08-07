@@ -1,11 +1,10 @@
 # encoding: utf-8
 
-require 'minitest/autorun'
-require_relative '../lib/label_writer'
+require 'helper'
 
 class LabelWriterTest < Minitest::Test
 	def setup
-		@label_writer = LabelWriter.new("output_path")
+		@label_writer = I18nGenerator::LabelWriter.new("output_path")
 	end
 
 	def test_not_null
@@ -17,7 +16,7 @@ class LabelWriterTest < Minitest::Test
 	end
 
   def test_present_translation
-    label = Label.new({
+    label = I18nGenerator::Label.new({
       :id => "label.message.goodbye",
       :description => "A friendly goodbye",
       :en => "Goodbye",
@@ -31,7 +30,7 @@ class LabelWriterTest < Minitest::Test
   end
 
   def test_english_used_when_translation_not_present
-    label = Label.new({
+    label = I18nGenerator::Label.new({
       :id => "label.message.goodbye",
       :description => "A friendly goodbye",
       :en => "Goodbye",

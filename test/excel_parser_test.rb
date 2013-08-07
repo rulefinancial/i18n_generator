@@ -1,11 +1,10 @@
 # encoding: utf-8
 
-require 'minitest/autorun'
-require_relative '../lib/excel_parser'
+require 'helper'
 
 class ExcelParserTest < Minitest::Test
 	def setup
-		@excel_parser = ExcelParser.new(File.join(File.dirname(__FILE__), "example_labels.xlsx"))
+		@excel_parser = I18nGenerator::ExcelParser.new(File.join(File.dirname(__FILE__), "..", "examples", "example_labels.xlsx"))
 	end
 
 	def test_not_null
