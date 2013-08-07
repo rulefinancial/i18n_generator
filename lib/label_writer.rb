@@ -41,11 +41,12 @@ class LabelWriter
 
     Dir.mkdir(@output_path) unless Dir.exists?(@output_path)
 
-    output_files.keys.each do |language|
+    output_files.keys.each_with_index do |language, idx|
       output_filename = File.join(@output_path,label_filename(language))
 
       File.open(output_filename, 'w') do |file|
         file.write(output_files[language].join("\n"))
+        puts "[#{idx+1}/#{output_files.size}] Generated [#{label_filename(language)}]"
       end
     end
   end
