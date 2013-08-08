@@ -1,12 +1,11 @@
 ### i18n_generator
 
 Generates locale-specific resource bundles (.properties) from an Excel spreadsheet containing translations.
-`ruby i18n_generator.rb </path/to/spreadsheet> </output_directory>`
 
 #### How to run
 
-1. `bundle install`
-1. `ruby i18n_generator.rb </path/to/spreadsheet> </output_directory>`
+1. `gem install i18n_generator`
+1. `i18n_generator </path/to/spreadsheet> </output_directory>`
 
 ### Spreadsheet format
 
