@@ -5,7 +5,7 @@ Generates locale-specific resource bundles (.properties) from an Excel spreadshe
 #### How to run
 
 1. `gem install i18n_generator`
-1. `i18n_generator </path/to/spreadsheet> </output_directory>`
+1. `i18n_generate </path/to/spreadsheet> </output_directory>`
 
 ### Spreadsheet format
 
