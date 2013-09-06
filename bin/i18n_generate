@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'i18n_generator'
+require 'i18n_generator/cli'
+
+I18nGenerator::CLI.start
