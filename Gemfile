@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 gem "roo", "~>1.11.2" # Excel Parsing
+gem "thor", "~>0.18.1" # Snazzy CLI
 
 group :development do
   gem "minitest", "~> 5.0.6"
