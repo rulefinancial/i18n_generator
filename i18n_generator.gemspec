@@ -5,30 +5,29 @@
 
 Gem::Specification.new do |s|
   s.name = "i18n_generator"
-  s.version = "0.0.1"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rob Young"]
-  s.date = "2013-08-07"
+  s.date = "2013-09-08"
   s.description = "Generates locale-specific resource bundles (.properties files) from translations held in an Excel spreadsheet"
   s.email = "robyoung26@gmail.com"
-  s.executables = ["i18n_generator"]
+  s.executables = ["i18n_generate"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     "Gemfile",
-    "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
-    "bin/i18n_generator",
+    "bin/i18n_generate",
     "examples/example_labels.xlsx",
     "i18n_generator.gemspec",
-    "i18n_generator.rb",
     "lib/i18n_generator.rb",
+    "lib/i18n_generator/cli.rb",
     "lib/i18n_generator/excel_parser.rb",
     "lib/i18n_generator/label.rb",
     "lib/i18n_generator/label_writer.rb",
@@ -47,22 +46,28 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<roo>, ["~> 1.11.2"])
+      s.add_runtime_dependency(%q<roo>, ["~> 1.12.1"])
+      s.add_runtime_dependency(%q<thor>, ["~> 0.18.1"])
+      s.add_runtime_dependency(%q<rubyzip>, ["< 1.0.0"])
       s.add_development_dependency(%q<minitest>, ["~> 5.0.6"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_development_dependency(%q<rdoc>, ["~> 4.0.1"])
       s.add_development_dependency(%q<bundler>, ["~> 1.3.5"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
     else
-      s.add_dependency(%q<roo>, ["~> 1.11.2"])
+      s.add_dependency(%q<roo>, ["~> 1.12.1"])
+      s.add_dependency(%q<thor>, ["~> 0.18.1"])
+      s.add_dependency(%q<rubyzip>, ["< 1.0.0"])
       s.add_dependency(%q<minitest>, ["~> 5.0.6"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_dependency(%q<rdoc>, ["~> 4.0.1"])
       s.add_dependency(%q<bundler>, ["~> 1.3.5"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
     end
   else
-    s.add_dependency(%q<roo>, ["~> 1.11.2"])
+    s.add_dependency(%q<roo>, ["~> 1.12.1"])
+    s.add_dependency(%q<thor>, ["~> 0.18.1"])
+    s.add_dependency(%q<rubyzip>, ["< 1.0.0"])
     s.add_dependency(%q<minitest>, ["~> 5.0.6"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
+    s.add_dependency(%q<rdoc>, ["~> 4.0.1"])
     s.add_dependency(%q<bundler>, ["~> 1.3.5"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
   end
