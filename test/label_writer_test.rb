@@ -4,7 +4,7 @@ require 'helper'
 
 class LabelWriterTest < Minitest::Test
 	def setup
-		@label_writer = I18nGenerator::LabelWriter.new("output_path")
+		@label_writer = I18nGenerator::LabelWriter.new("output_path", "labels_")
 	end
 
 	def test_not_null

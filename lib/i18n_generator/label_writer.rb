@@ -8,15 +8,16 @@ module I18nGenerator
   # and writing them to output files
   class LabelWriter
 
-    FILENAME_PREFIX = "labels_"
-
     FILE_HEADER_TEXT = <<-HEADER
 # THIS FILE IS GENERATED - PLEASE DO NOT EDIT (https://github.com/rulefinancial/i18n_generator)
     HEADER
 
-    def initialize(output_directory)
+    def initialize(output_directory, bundle_prefix)
       raise 'LabelWriter requires an output path' unless output_directory
+      raise 'LabelWriter requires a filename prefix' unless bundle_prefix
+
       @output_path = output_directory
+      @bundle_prefix = bundle_prefix
     end
 
     ##
@@ -72,7 +73,7 @@ module I18nGenerator
     ##
     # Produces the filename for a resource bundle
     def label_filename(language)
-      FILENAME_PREFIX + language.to_s + ".properties"
+      @bundle_prefix + language.to_s + ".properties"
     end
   end
 end
